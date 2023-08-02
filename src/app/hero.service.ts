@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Hero } from './hero';
-import { HEROES } from './mock-heroes';
+// import { HEROES } from './mock-heroes';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -37,9 +37,10 @@ export class HeroService {
     );
   }
   getHero(id: Number): Observable<Hero> {
-    const hero = HEROES.find((h) => h.id === id)!;
-    // this.messageService.add(`HeroService: fetched hero id=${id}`);
-    return of(hero);
+    return this.http.get<Hero>(`${this.heroesUrl}/${id}`).pipe(
+      tap((_) => this.log(`HeroService: fetched hero id=${id}`)),
+      catchError(this.handleError<Hero>(`getHero id=${id}`))
+    );
   }
   updateHero(hero: Hero): Observable<any> {
     return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
