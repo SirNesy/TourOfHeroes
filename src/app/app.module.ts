@@ -19,7 +19,7 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     AppComponent,
     HeroesComponent,
     HeroDetailComponent,
-    MesssagesComponent,
+    MesssagesComponent,  
     DashboardComponent,
     HeroSearchComponent,
   ],
