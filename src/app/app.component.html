@@ -1,5 +1,13 @@
 <h1>{{ title }}</h1>
 <nav>
+  <button
+    class="btn btn-primary home"
+    type="button"
+    routerLink="dashboard"
+    (click)="home()"
+  >
+    Home
+  </button>
   <a routerLink="dashboard">Dashboard</a>
   <a routerLink="heroes">Heroes</a>
 </nav>
