@@ -3,6 +3,8 @@ import { Hero } from '../hero';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { HeroService } from '../hero.service';
+import { NgModel } from '@angular/forms';
+// import { Form } from '@angular/forms';
 // import { MessageService } from '../message.service';
 
 @Component({
@@ -16,6 +18,9 @@ export class HeroDetailComponent implements OnInit {
     private heroService: HeroService,
     private location: Location
   ) {}
+
+  @Input() hero?: Hero;
+
   ngOnInit(): void {
     this.getHero();
   }
@@ -31,6 +36,4 @@ export class HeroDetailComponent implements OnInit {
       this.heroService.updateHero(this.hero).subscribe(() => this.goBack());
     }
   }
-
-  @Input() hero?: Hero;
 }

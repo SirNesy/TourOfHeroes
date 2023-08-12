@@ -14,7 +14,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 
-@NgModule({
+@NgModule({ 
   declarations: [
     AppComponent,
     HeroesComponent,
