@@ -11,10 +11,11 @@ import { HeroService } from '../hero.service';
 })
 export class HeroSearchComponent implements OnInit {
   heroes$!: Observable<Hero[]>;
+  // newArray = []
   private searchTerms = new Subject<string>();
   constructor(private heroService: HeroService) {}
   search(term: string): void {
-    this.searchTerms.next(term); 
+    this.searchTerms.next(term);
   }
   ngOnInit(): void {
     this.heroes$ = this.searchTerms.pipe(
